@@ -1,14 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import store from "./Redux/store";
+import { Router } from "react-router-dom";
+import history from "./history";
+import axios from "axios";
+import Cookies from 'js-cookie';
+
+
+//setting up default config for axios
+axios.defaults.withCredentials = true;
+axios.defaults.credentials = "include";
+axios.defaults.headers.common = {'Authorization': `Bearer ${Cookies.get("jwt")}`}
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
