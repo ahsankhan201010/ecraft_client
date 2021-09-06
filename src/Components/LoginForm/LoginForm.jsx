@@ -25,7 +25,7 @@ const LoginForm = ({login}) => {
           type="text"
           placeholder="Password"
         />
-        <button type="submit">submit</button>
+        <button type="submit">login</button>
       </form>
     </div>
   );

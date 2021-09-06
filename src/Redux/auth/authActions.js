@@ -1,25 +1,41 @@
 import axios from "axios";
-import { host } from "../../contstants";
+import { authConstants } from "./authConstants";
 
 export const signup =
-  ({ name, email, password }) =>
-  async () => {
+  ({ name, email, password, passwordConfirm, role }) =>
+  async (dispatch) => {
     try {
-      console.log(name, email, password);
-      var arts = await axios.get(`${host}/arts`)
-      console.log(arts)
+      var {
+        data: {
+          data: { user } = {},
+        },
+      } = await axios.post(`/auth/signup`, { username: name, email, password, passwordConfirm, role  });
+      dispatch({
+        type: authConstants.SET_USER,
+        payload: {
+          user
+        }
+      })
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data.error);
     }
   };
 
 export const login =
   ({ email, password }) =>
-  async () => {
+  async (dispatch) => {
     try {
-      console.log(email, password);
-      var user = await axios.post(`${host}/auth/login`,{email,password})
-      console.log(user)
+      var {
+        data: {
+          data: { user } = {},
+        },
+      } = await axios.post(`/auth/login`, { email, password });
+      dispatch({
+        type: authConstants.SET_USER,
+        payload: {
+          user
+        }
+      })
     } catch (error) {
       console.log(error);
     }

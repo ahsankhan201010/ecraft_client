@@ -9,12 +9,14 @@ import { Router } from "react-router-dom";
 import history from "./history";
 import axios from "axios";
 import Cookies from 'js-cookie';
+import { host } from "./contstants";
 
 
 //setting up default config for axios
 axios.defaults.withCredentials = true;
 axios.defaults.credentials = "include";
 axios.defaults.headers.common = {'Authorization': `Bearer ${Cookies.get("jwt")}`}
+axios.defaults.baseURL = `${host}`
 
 
 ReactDOM.render(

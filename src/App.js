@@ -5,6 +5,7 @@ import Auth from './Pages/Auth/Auth';
 import Arts from './Pages/Arts/Arts';
 import Artists from './Pages/Artists/Artists';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Art from './Pages/Art/Art';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/auth" component={Auth} />
-        <Route path="/arts" component={Arts} />
+        <Route path="/arts" component={Arts} exact />
+        <Route path="/arts/:artId" component={Art} />
         <Route path="/artists" component={Artists} />
         <Route path="/dashboard" component={Dashboard} />
       </Switch>
