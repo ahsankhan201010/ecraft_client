@@ -25,11 +25,7 @@ export const login =
   ({ email, password }) =>
   async (dispatch) => {
     try {
-      var {
-        data: {
-          data: { user } = {},
-        },
-      } = await axios.post(`/auth/login`, { email, password });
+      var {data: {data: {user}}} = await axios.post(`/auth/login`, { email, password });
       dispatch({
         type: authConstants.SET_USER,
         payload: {

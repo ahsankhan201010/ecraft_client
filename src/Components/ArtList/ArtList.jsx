@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 const ArtListItem = ({ _id, coverPhoto, title, cost }) => {
   return (
     <div>
-      <Link to={`/arts/${_id}`}><img src={coverPhoto} /></Link> 
-      <div style={{display: "flex", alignItems: "center"}} >
+      <Link to={`/arts/${_id}`}>
+        <img src={coverPhoto} />
+      </Link>
+      <div style={{ display: "flex", alignItems: "center" }}>
         <h2>{title}</h2> ---- <h3>${cost}</h3>
       </div>
     </div>

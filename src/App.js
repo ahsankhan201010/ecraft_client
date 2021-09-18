@@ -15,8 +15,10 @@ function App() {
         <Route path="/auth" component={Auth} />
         <Route path="/arts" component={Arts} exact />
         <Route path="/arts/:artId" component={Art} />
-        <Route path="/artists" component={Artists} />
-        <Route path="/dashboard" component={Dashboard} />
+        {/* <Route path="/artists" component={Arts} exact />
+        <Route path="/artists/:artistId" component={Art} /> */}
+        {/* <Route path="/artists" component={Artists} /> */}
+        {/* <Route path="/dashboard" component={Dashboard} /> */}
       </Switch>
     </div>
   );
