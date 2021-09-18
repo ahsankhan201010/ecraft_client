@@ -36,3 +36,9 @@ export const login =
       console.log(error);
     }
   };
+
+  export const logout = () => async (dispatch) => {
+    dispatch({
+      type: authConstants.REMOVE_USER,
+    })
+  }
